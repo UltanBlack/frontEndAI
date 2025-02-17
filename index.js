@@ -23,7 +23,16 @@ async function generateSentiment() {
 
         if (response.ok) {
             // Display the generated sentiment
-            responseDiv.innerHTML = `<p><strong>Sentiment:</strong> ${JSON.stringify(data)}</p>`;
+
+            //Object.keys(data).forEach(key => {
+            //  console.log(key, data[key]);
+            //});
+            const sorted = Object.entries(data).sort((a, b) => {
+              return b[1] - a[1]; // Descending order
+            });
+            console.log(sorted);
+            responseDiv.innerHTML = `<p><strong>Sentiment:</strong> ${JSON.stringify(sorted)}</p>`;
+
         } else {
             responseDiv.innerHTML = `<p class="error">Error: ${data.error}</p>`;
         }
