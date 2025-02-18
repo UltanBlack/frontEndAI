@@ -31,7 +31,20 @@ async function generateSentiment() {
               return b[1] - a[1]; // Descending order
             });
             console.log(sorted);
-            responseDiv.innerHTML = `<p><strong>Sentiment:</strong> ${JSON.stringify(sorted)}</p>`;
+            //responseDiv.innerHTML = `<p><strong>Sentiment:</strong> ${JSON.stringify(sorted)}</p>`;
+            sorted.forEach(([sentiment, weight]) => {
+                if (weight >= 0.0001) {
+                const percentage = weight * 100; // Convert range 0-1 to percentage
+                responseDiv.innerHTML += `
+                    <div class="sentiment-container">
+                        <span>${sentiment}: ${percentage.toFixed(2)}%</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: ${percentage}%;"></div>
+                        </div>
+                    </div>
+                `;
+                }
+            });
 
         } else {
             responseDiv.innerHTML = `<p class="error">Error: ${data.error}</p>`;
