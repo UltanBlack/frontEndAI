@@ -1,26 +1,23 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flask API Frontend</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <h1>Sentiment Analysis Tool</h1>
-      <textarea id="inputText" placeholder="Enter your text here..."></textarea>
-      <button onclick="generateSentiment()">Generate Sentiment</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flask API Frontend</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-      <div id="response" class="response"></div>
-    </div>
-    <select id="dropdown">
-      <option value="Nothing">NoPrompt</option>
-      <option value="Anger">AngerPrompt</option>
-      <option value="Sadness">SadnessPrompt</option>
-      <option value="Happiness">HappinessPrompt</option>
-    </select>
-    <script src="index.js"></script>
-  </body>
+<body>
+  <div class="container">
+    <h1>Sentiment Analysis Tool</h1>
+    <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+    <button onclick="generateSentiment()">Generate Sentiment</button>
+
+    <div id="response" class="response"></div>
+  </div>
+  <select id="prompt-dropdown"></select>
+  <script src="index.js"></script>
+</body>
+
 </html>
