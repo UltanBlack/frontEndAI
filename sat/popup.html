@@ -1,0 +1,150 @@
+<!-- popup.html -->
+<!doctype html>
+<html>
+
+<head>
+  <title>Sentiment Analysis Tool</title>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 400px;
+      padding: 15px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .text-area {
+      width: 100%;
+      min-height: 100px;
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    select,
+    button {
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3b78e7;
+    }
+
+    #response {
+      border: 1px solid #eee;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .sentiment-container {
+      margin-bottom: 8px;
+    }
+
+    .progress-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      height: 20px;
+      border-radius: 10px;
+      margin-top: 5px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      border-radius: 10px;
+      background-color: #4285f4;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .settings-btn {
+      background: none;
+      border: none;
+      color: #666;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .settings-panel {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+
+    .server-url {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Sentiment Analyzer</h2>
+      <button class="settings-btn" id="settingsToggle">⚙️</button>
+    </div>
+
+    <!-- Settings Panel -->
+    <div id="settingsPanel" class="settings-panel hidden">
+      <h3>Settings</h3>
+      <label for="serverUrl">Server URL:</label>
+      <input type="text" id="serverUrl" class="server-url" placeholder="http://127.0.0.1:5000" />
+      <button id="saveSettings">Save</button>
+    </div>
+
+    <textarea id="inputText" class="text-area" placeholder="Text to analyze..."></textarea>
+
+    <div class="controls">
+      <select id="prompt-dropdown">
+        <option value="">Loading prompts...</option>
+      </select>
+      <button id="analyzeBtn">Analyze</button>
+    </div>
+
+    <div id="response"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
