@@ -1,3 +1,13 @@
+const emojis =
+{
+    "sadness": "😢",
+    "surprise": "😲",
+    "joy": "😊",
+    "anger": "😡",
+    "disgust": "🤢",
+    "fear": "😱",
+    "neutral": "😐"
+}
 document.addEventListener("DOMContentLoaded", async () => {
     const inputText = document.getElementById('inputText');
     const promptDropdown = document.getElementById('prompt-dropdown');
@@ -142,9 +152,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                         const percentage = weight * 100; // Convert range 0-1 to percentage
                         responseDiv.innerHTML += `
               <div class="sentiment-container">
-                <span>${sentiment}: ${percentage.toFixed(2)}%</span>
+                <span>${emojis[sentiment.toLowerCase()]} ${sentiment}: ${percentage.toFixed(2)}%</span>
                 <div class="progress-container">
-                  <div class="progress-bar" style="width: ${percentage}%;"></div>
+                  <div class="progress-bar ${sentiment.toLowerCase()}" style="width: ${percentage}%;"></div>
                 </div>
               </div>
             `;
