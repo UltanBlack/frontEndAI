@@ -120,7 +120,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <h2>Sentiment Analyzer</h2>
+      <h2>Sentiment Analysis Tool</h2>
       <button class="settings-btn" id="settingsToggle">⚙️</button>
     </div>
 
@@ -129,15 +129,17 @@
       <h3>Settings</h3>
       <label for="serverUrl">Server URL:</label>
       <input type="text" id="serverUrl" class="server-url" placeholder="http://127.0.0.1:5000" />
+      <label for="prompt-dropdown">Prompt Version: </label>
+      <select id="prompt-dropdown">
+        <option value="">Loading prompts...</option>
+      </select>
+      <br />
       <button id="saveSettings">Save</button>
     </div>
 
     <textarea id="inputText" class="text-area" placeholder="Text to analyze..."></textarea>
 
     <div class="controls">
-      <select id="prompt-dropdown">
-        <option value="">Loading prompts...</option>
-      </select>
       <button id="analyzeBtn">Analyze</button>
     </div>
 
