@@ -1,4 +1,3 @@
-<!-- popup.html -->
 <!doctype html>
 <html>
 
@@ -7,86 +6,103 @@
   <meta charset="UTF-8" />
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
       width: 400px;
-      padding: 15px;
+      padding: 20px;
+      background-color: transparent;
+      color: #333;
     }
 
     .container {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
     }
 
     .text-area {
       width: 100%;
-      min-height: 100px;
-      margin-bottom: 10px;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      min-height: 120px;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
       resize: vertical;
+      font-size: 14px;
+      background-color: #f9fafb;
     }
 
     .controls {
       display: flex;
       gap: 10px;
-      margin-bottom: 10px;
     }
 
     select,
     button {
-      padding: 8px;
-      border-radius: 4px;
-    }
-
-    button {
-      background-color: #4285f4;
-      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
       border: none;
       cursor: pointer;
     }
 
+    button {
+      background-color: #4a90e2;
+      color: white;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
     button:hover {
-      background-color: #3b78e7;
+      background-color: #357abd;
     }
 
     #response {
-      border: 1px solid #eee;
-      padding: 10px;
-      border-radius: 4px;
-      background-color: #f9f9f9;
+      border: 1px solid #e5e7eb;
+      padding: 12px;
+      border-radius: 6px;
+      background-color: #ffffff;
       max-height: 300px;
       overflow-y: auto;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     .sentiment-container {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .progress-container {
       width: 100%;
-      background-color: #e0e0e0;
-      height: 20px;
-      border-radius: 10px;
+      background-color: #e5e7eb;
+      height: 18px;
+      border-radius: 9px;
       margin-top: 5px;
+      overflow: hidden;
     }
 
     .progress-bar {
       height: 100%;
-      border-radius: 10px;
-      background-color: #4285f4;
+      border-radius: 9px;
+      background: linear-gradient(90deg, #4a90e2, #357abd);
     }
 
     .error {
-      color: red;
+      color: #e74c3c;
+      font-weight: 500;
     }
 
     .settings-btn {
@@ -94,7 +110,12 @@
       border: none;
       color: #666;
       cursor: pointer;
-      font-size: 20px;
+      font-size: 22px;
+      transition: color 0.2s;
+    }
+
+    .settings-btn:hover {
+      color: #333;
     }
 
     .hidden {
@@ -103,16 +124,20 @@
 
     .settings-panel {
       border: 1px solid #ddd;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 4px;
+      padding: 12px;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     .server-url {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       margin-bottom: 10px;
-      box-sizing: border-box;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      background-color: #f9fafb;
     }
   </style>
 </head>
@@ -124,7 +149,6 @@
       <button class="settings-btn" id="settingsToggle">⚙️</button>
     </div>
 
-    <!-- Settings Panel -->
     <div id="settingsPanel" class="settings-panel hidden">
       <h3>Settings</h3>
       <label for="serverUrl">Server URL:</label>
